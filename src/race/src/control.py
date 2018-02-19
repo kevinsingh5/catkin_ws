@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import rospy
 from race.msg import drive_param
 from race.msg import pid_input
@@ -22,9 +21,8 @@ def control(data):
 	# 1. Scale the error
 	# 2. Apply the PID equation on error
 	# 3. Make sure the error is within bounds
-	angle_offset = -37
-	angle = data.pid_error*kp
-	angle = angle + angle_offset
+	pid_offset = -0.158
+	angle = (data.pid_error + pid_offset) * kp
 	print("Printing pid_error: ", data.pid_error , "angle: ", angle)
 	#print("Printing angle: %d", angle)
 	if angle > 100:

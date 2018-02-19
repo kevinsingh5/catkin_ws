@@ -18,6 +18,7 @@ while key != ord('q'):
 	key = stdscr.getch()
 	stdscr.refresh()
 	if key == 8:#curses.KEY_BACKSPACE:
+	#if key == curses.KEY_BACKSPACE:
 		if running == 0:
 			em_pub.publish(2)
 			stdscr.addstr(5, 20, "Normal Operation :)")
