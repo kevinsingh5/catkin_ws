@@ -22,8 +22,9 @@ def control(data):
 	# 1. Scale the error
 	# 2. Apply the PID equation on error
 	# 3. Make sure the error is within bounds
-	pid_offset = 0.1
-	angle = (data.pid_error+pid_offset)*kp;
+	angle_offset = -37
+	angle = data.pid_error*kp
+	angle = angle + angle_offset
 	print("Printing pid_error: ", data.pid_error , "angle: ", angle)
 	#print("Printing angle: %d", angle)
 	if angle > 100:

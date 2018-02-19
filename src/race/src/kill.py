@@ -17,8 +17,6 @@ running = -1 # -1 init , 0 stop, 1 engine brake, 2 normal
 while key != ord('q'):
 	key = stdscr.getch()
 	stdscr.refresh()
-	print(key)
-	print(curses.KEY_BACKSPACE)
 	if key == 8:#curses.KEY_BACKSPACE:
 		if running == 0:
 			em_pub.publish(2)
