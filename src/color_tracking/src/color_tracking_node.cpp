@@ -63,8 +63,8 @@ void cv_color_tracking(const cv::Mat& input_img)
 	//cv::inRange(imgHSV, cv::Scalar(16, 150, 60), cv::Scalar(38, 255, 255), imgThresholded);	//Threshold the image
 	cv::Mat1b mask1, mask2;
 
-	cv::inRange(imgHSV, cv::Scalar(0, 70, 50), cv::Scalar(10, 255, 255), mask1);		//Blue
-	cv::inRange(imgHSV, cv::Scalar(170, 70, 50), cv::Scalar(180, 255, 255), mask2);	// Blue
+	cv::inRange(imgHSV, cv::Scalar(100, 200, 50), cv::Scalar(110, 255, 255), mask1);		//Blue
+	cv::inRange(imgHSV, cv::Scalar(110, 200, 50), cv::Scalar(120, 255, 255), mask2);	// Blue
 	cv::Mat1b mask = mask1 | mask2;
 
 
@@ -84,9 +84,26 @@ void cv_color_tracking(const cv::Mat& input_img)
 	cv::dilate( mask1, mask1, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5)) ); 
 	cv::erode(mask1, mask1, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5)) );
 
+	//START findContours function
+
+	vector<vector<cv::Point> > contours;
+
+	cv::findContours(mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
+	
+	cv::Mat dst = cv::Mat::zeros(mask.size(), CV_8UC3);
+
+	for(int i = 0; i < contours.size(); i++){
+		cv::Scalar color = cv::Scalar((rand()&255, rand()&255, rand()&255));
+		cv::drawContours(dst, contours, i, color, 2, 8, NULL, 0, cv::Point()); // cv::FILLED, 8, cv::Point(0, 0));
+	}
+
+
+
+	printf("XXXXXXXXXXXXXXXXXXXXXXXXXX %d", contours.size());
 
 	cv::imshow("color_tracking_input_image", input_img);
-	cv::imshow("blue_tracking", mask); 
+	cv::imshow("contour_image", dst);
+	cv::imshow("red_tracking", mask); 
 	cv::waitKey(1);
 }
 
@@ -114,8 +131,8 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg, image_transport::Publi
 		//t_begin = t_end;
 #endif
 
-		cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
-		cv::imshow("view", cv_output_img);
+		//cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
+		//cv::imshow("view", cv_output_img);
 		cv::waitKey(30);
 
 #ifdef MEASURE_TIME
