@@ -8,6 +8,7 @@ zed-ros-wrapper/CMakeFiles/ZEDWrapper.dir/src/zed_wrapper_nodelet.cpp.o
  /opt/ros/kinetic/include/class_loader/class_loader_core.h
  /opt/ros/kinetic/include/class_loader/class_loader_exceptions.h
  /opt/ros/kinetic/include/class_loader/class_loader_register_macro.h
+ /opt/ros/kinetic/include/class_loader/console_bridge_compatibility.h
  /opt/ros/kinetic/include/class_loader/meta_object.h
  /opt/ros/kinetic/include/dynamic_reconfigure/BoolParameter.h
  /opt/ros/kinetic/include/dynamic_reconfigure/Config.h

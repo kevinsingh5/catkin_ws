@@ -7,6 +7,7 @@
 
 #include <iostream>
 using namespace std;
+using namespace cv;
 
 //#define MEASURE_TIME 1
 #define COLOR_TRACKING 1
@@ -90,20 +91,81 @@ void cv_color_tracking(const cv::Mat& input_img)
 
 	cv::findContours(mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
 	
-	cv::Mat dst = cv::Mat::zeros(mask.size(), CV_8UC3);
+	cv::Mat dst = cv::Mat::zeros(mask.size(), CV_8UC1);
 
 	for(int i = 0; i < contours.size(); i++){
-		cv::Scalar color = cv::Scalar((rand()&255, rand()&255, rand()&255));
+		cv::Scalar color = cv::Scalar((rand()&200, rand()&125, rand()&200));
 		cv::drawContours(dst, contours, i, color, 2, 8, NULL, 0, cv::Point()); // cv::FILLED, 8, cv::Point(0, 0));
 	}
 
 
+	// START Hough Circle Transformation
+	//cv::Mat(CV_8UC1)
+	cv::Mat gray;
+	input_img.copyTo(gray, mask);
+	
+	//morphological opening (removes small objects from the foreground)
+	cv::erode(gray, gray, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3)) );
+	cv::dilate(gray, gray, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3)) ); 
 
-	printf("XXXXXXXXXXXXXXXXXXXXXXXXXX %d", contours.size());
+	//morphological closing (removes small holes from the foreground)
+	cv::dilate(gray, gray, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3)) ); 
+	cv::erode(gray, gray, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3)) );
 
-	cv::imshow("color_tracking_input_image", input_img);
-	cv::imshow("contour_image", dst);
+	cv::cvtColor(gray, gray, COLOR_BGR2GRAY);
+	cv::medianBlur(gray, gray, 15);
+	//cv::medianBlur(dst, dst, 5);
+
+	vector<cv::Vec3f> circles;
+	cv::HoughCircles(gray, circles, cv::HOUGH_GRADIENT, 1, 
+		200,	// detect circles with different distances to each other
+		50, 18, 30, input_img.cols/2		// change the last two parameters
+			// (min_radius & max_radius)
+	);
+
+	vector<Point> data;
+	for(int i = 0; i < circles.size(); i++) {
+		cv::Vec3i c = circles[i];
+		cv::Point center = cv::Point(c[0], c[1]);
+		//circle center
+		//cv::circle(input_img, center, 1, Scalar(0,100,100), 3, FILLED);
+		// center point
+		cv::line(input_img, Point(center.x+10, center.y-10), Point(center.x-10, center.y+10), Scalar(0,200,0), 2, 8);
+		cv::line(input_img, Point(center.x-10, center.y-10), Point(center.x+10, center.y+10), Scalar(0,200,0), 2, 8);
+
+		//circle outline
+		int radius = c[2];
+		//:cv::circle(input_img, center, radius, Scalar(0, 255, 0), 3, FILLED);
+		data.push_back(Point(center.x - radius, center.y + radius));
+		data.push_back(Point(center.x + radius, center.y - radius));
+		cv::rectangle(input_img, data[0], data[1], Scalar(0, 255, 0), 3, 8);
+		//printf("CIRCLESSSS index: %d, size: %d\n", circles[0], circles.size());
+	}
+
+	String position = "FRONT";
+	int circleX;
+	int image_center = gray.cols/2;
+	if(circles.size() > 0){
+		cv::Vec3i center_circle = circles[0];
+		circleX = center_circle[0];
+		if(circleX < image_center-(image_center/3)){
+			position = "LEFT";
+		} else if(circleX > image_center+(image_center/3)) {
+			position = "RIGHT";
+		} else {
+			position = "FRONT";
+		}
+		cv::putText(input_img, position, Point(0,30), cv::FONT_HERSHEY_SIMPLEX, 1, Scalar(0,255,0));
+	}
+
+
+
+
+
+	//cv::imshow("color_tracking_input_image", input_img);
+	cv::imshow("grayed_image", gray);
 	cv::imshow("red_tracking", mask); 
+	cv::imshow("circle_detection", input_img);
 	cv::waitKey(1);
 }
 
