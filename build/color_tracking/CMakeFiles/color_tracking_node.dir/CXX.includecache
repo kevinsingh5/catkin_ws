@@ -19,6 +19,14 @@ cv_bridge/cv_bridge.h
 -
 ctime
 -
+string
+-
+iostream
+-
+sstream
+-
+cmath
+-
 iostream
 -
 

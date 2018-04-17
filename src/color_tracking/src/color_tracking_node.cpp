@@ -4,6 +4,10 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <ctime>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <cmath>
 
 #include <iostream>
 using namespace std;
@@ -15,7 +19,7 @@ using namespace cv;
 #ifdef MEASURE_TIME
 clock_t t_begin = 0;
 #endif
-
+static double dist;
 
 void cv_process_img(const cv::Mat& input_img, cv::Mat& output_img)
 {
@@ -102,7 +106,10 @@ void cv_color_tracking(const cv::Mat& input_img)
 	// START Hough Circle Transformation
 	//cv::Mat(CV_8UC1)
 	cv::Mat gray;
-	input_img.copyTo(gray, mask);
+	cv::Mat white = cv::Mat(mask.size(), CV_8UC1);
+	white = cv::Scalar(255);
+	//input_img.copyTo(gray, mask);
+	white.copyTo(gray, mask);
 	
 	//morphological opening (removes small objects from the foreground)
 	cv::erode(gray, gray, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3)) );
@@ -112,7 +119,7 @@ void cv_color_tracking(const cv::Mat& input_img)
 	cv::dilate(gray, gray, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3)) ); 
 	cv::erode(gray, gray, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3)) );
 
-	cv::cvtColor(gray, gray, COLOR_BGR2GRAY);
+	//cv::cvtColor(gray, gray, COLOR_BGR2GRAY);
 	cv::medianBlur(gray, gray, 15);
 	//cv::medianBlur(dst, dst, 5);
 
@@ -142,29 +149,58 @@ void cv_color_tracking(const cv::Mat& input_img)
 		//printf("CIRCLESSSS index: %d, size: %d\n", circles[0], circles.size());
 	}
 
-	String position = "FRONT";
 	int circleX;
-	int image_center = gray.cols/2;
+	double f = 590;
+	double w = 7;
+	double xscalar;
+	double xx;
+	double yy;
+	double theta;
+	bool   invert;
 	if(circles.size() > 0){
 		cv::Vec3i center_circle = circles[0];
 		circleX = center_circle[0];
-		if(circleX < image_center-(image_center/3)){
-			position = "LEFT";
-		} else if(circleX > image_center+(image_center/3)) {
-			position = "RIGHT";
-		} else {
-			position = "FRONT";
+		double rad = center_circle[2];
+
+		dist = 0.2*dist + (0.8*(f*w)/(2*rad));
+		std::stringstream ss;
+		ss << dist;
+
+		std::string str;
+		ss >> str;
+		cv::putText(input_img, str, Point(0,30), cv::FONT_HERSHEY_SIMPLEX, 1, Scalar(0,255,0));
+	
+		xscalar = 7/(rad*2);
+		xx = xscalar * ((double)circleX - (input_img.cols/2));
+		if(xx < 0){
+			invert = -1;
 		}
-		cv::putText(input_img, position, Point(0,30), cv::FONT_HERSHEY_SIMPLEX, 1, Scalar(0,255,0));
+		else{
+			invert = 1;
+		}
+		yy = dist;
+		theta = tan(abs(xx)/yy) * invert;
+
+		std::stringstream sss;
+		sss << theta;
+		std::string check;
+		sss >> check;
+
+		std::stringstream ssss;
+		ssss << xx;
+		std::string ourx;
+		ssss >> ourx;
+
+		cv::putText(input_img, check, Point(75,75), cv::FONT_HERSHEY_SIMPLEX, 1, Scalar(0,255,0));
+		cv::putText(input_img, ourx, Point(125,125), cv::FONT_HERSHEY_SIMPLEX, 1, Scalar(0,255,0));
 	}
 
 
 
 
-
 	//cv::imshow("color_tracking_input_image", input_img);
-	cv::imshow("grayed_image", gray);
-	cv::imshow("red_tracking", mask); 
+	//cv::imshow("grayed_image", gray);
+	//cv::imshow("red_tracking", mask); 
 	cv::imshow("circle_detection", input_img);
 	cv::waitKey(1);
 }
@@ -212,7 +248,6 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg, image_transport::Publi
 int main(int argc, char **argv)
 {
 	ros::init(argc, argv, "image_listener");
-
 	ros::NodeHandle nh;
 
 	//cv::namedWindow("view");
