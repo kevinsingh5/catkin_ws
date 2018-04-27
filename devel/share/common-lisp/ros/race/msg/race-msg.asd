@@ -8,6 +8,8 @@
     (:file "_package_drive_param" :depends-on ("_package"))
     (:file "drive_values" :depends-on ("_package_drive_values"))
     (:file "_package_drive_values" :depends-on ("_package"))
+    (:file "obj_track" :depends-on ("_package_obj_track"))
+    (:file "_package_obj_track" :depends-on ("_package"))
     (:file "pid_input" :depends-on ("_package_pid_input"))
     (:file "_package_pid_input" :depends-on ("_package"))
   ))

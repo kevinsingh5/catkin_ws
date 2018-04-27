@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
 include race/CMakeFiles/race_generate_messages_eus.dir/progress.make
 
 race/CMakeFiles/race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/drive_values.l
+race/CMakeFiles/race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/obj_track.l
 race/CMakeFiles/race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/drive_param.l
 race/CMakeFiles/race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/pid_input.l
 race/CMakeFiles/race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/manifest.l
@@ -64,22 +65,28 @@ race/CMakeFiles/race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/r
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from race/drive_values.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/nvidia/catkin_ws/src/race/msg/drive_values.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg
 
+/home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/obj_track.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/obj_track.l: /home/nvidia/catkin_ws/src/race/msg/obj_track.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from race/obj_track.msg"
+	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/nvidia/catkin_ws/src/race/msg/obj_track.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg
+
 /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/drive_param.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/drive_param.l: /home/nvidia/catkin_ws/src/race/msg/drive_param.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from race/drive_param.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from race/drive_param.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/nvidia/catkin_ws/src/race/msg/drive_param.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg
 
 /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/pid_input.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/pid_input.l: /home/nvidia/catkin_ws/src/race/msg/pid_input.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from race/pid_input.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from race/pid_input.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/nvidia/catkin_ws/src/race/msg/pid_input.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg
 
 /home/nvidia/catkin_ws/devel/share/roseus/ros/race/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp manifest code for race"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp manifest code for race"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/nvidia/catkin_ws/devel/share/roseus/ros/race race std_msgs
 
 race_generate_messages_eus: race/CMakeFiles/race_generate_messages_eus
 race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/drive_values.l
+race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/obj_track.l
 race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/drive_param.l
 race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/msg/pid_input.l
 race_generate_messages_eus: /home/nvidia/catkin_ws/devel/share/roseus/ros/race/manifest.l

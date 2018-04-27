@@ -10,4 +10,7 @@ set(zed_wrapper_EXEC_DEPENDS "tf2_ros" "tf2_geometry_msgs" "nav_msgs" "roscpp" "
 set(zed_wrapper_RUN_DEPENDS "tf2_ros" "tf2_geometry_msgs" "nav_msgs" "roscpp" "rosconsole" "sensor_msgs" "opencv" "image_transport" "dynamic_reconfigure" "pcl_conversions" "nodelet" "robot_state_publisher")
 set(zed_wrapper_TEST_DEPENDS )
 set(zed_wrapper_DOC_DEPENDS )
+set(zed_wrapper_URL_WEBSITE "")
+set(zed_wrapper_URL_BUGTRACKER "")
+set(zed_wrapper_URL_REPOSITORY "")
 set(zed_wrapper_DEPRECATED "")

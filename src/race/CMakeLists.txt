@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  cv_bridge
 )
 
 ## System dependencies are found with CMake's conventions
@@ -50,6 +51,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
  add_message_files(
    FILES
+   obj_track.msg
    drive_param.msg
    drive_values.msg
    pid_input.msg
@@ -107,7 +109,14 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES race
-  CATKIN_DEPENDS message_runtime message_generation roscpp rospy std_msgs
+  CATKIN_DEPENDS 
+    message_runtime 
+    message_generation 
+    roscpp 
+    rospy 
+    std_msgs
+    cv_bridge
+    opencv3
 #  DEPENDS system_lib
 )
 
@@ -120,6 +129,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -150,6 +160,7 @@ include_directories(
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
+#   ${OpenCV_LIBS}
 # )
 
 #############

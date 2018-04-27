@@ -34,6 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/race/msg" TYPE FILE FILES
+    "/home/nvidia/catkin_ws/src/race/msg/obj_track.msg"
     "/home/nvidia/catkin_ws/src/race/msg/drive_param.msg"
     "/home/nvidia/catkin_ws/src/race/msg/drive_values.msg"
     "/home/nvidia/catkin_ws/src/race/msg/pid_input.msg"

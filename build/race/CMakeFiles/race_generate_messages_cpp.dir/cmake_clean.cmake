@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/race_generate_messages_cpp"
   "/home/nvidia/catkin_ws/devel/include/race/drive_values.h"
+  "/home/nvidia/catkin_ws/devel/include/race/obj_track.h"
   "/home/nvidia/catkin_ws/devel/include/race/drive_param.h"
   "/home/nvidia/catkin_ws/devel/include/race/pid_input.h"
 )

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/race_generate_messages_lisp"
   "/home/nvidia/catkin_ws/devel/share/common-lisp/ros/race/msg/drive_values.lisp"
+  "/home/nvidia/catkin_ws/devel/share/common-lisp/ros/race/msg/obj_track.lisp"
   "/home/nvidia/catkin_ws/devel/share/common-lisp/ros/race/msg/drive_param.lisp"
   "/home/nvidia/catkin_ws/devel/share/common-lisp/ros/race/msg/pid_input.lisp"
 )

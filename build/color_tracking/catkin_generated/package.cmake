@@ -10,4 +10,7 @@ set(color_tracking_EXEC_DEPENDS "cv_bridge" "image_transport" "opencv3" "roscpp"
 set(color_tracking_RUN_DEPENDS "cv_bridge" "image_transport" "opencv3" "roscpp")
 set(color_tracking_TEST_DEPENDS )
 set(color_tracking_DOC_DEPENDS )
+set(color_tracking_URL_WEBSITE "")
+set(color_tracking_URL_BUGTRACKER "")
+set(color_tracking_URL_REPOSITORY "")
 set(color_tracking_DEPRECATED "")

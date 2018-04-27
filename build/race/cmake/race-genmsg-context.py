@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/nvidia/catkin_ws/src/race/msg/drive_param.msg;/home/nvidia/catkin_ws/src/race/msg/drive_values.msg;/home/nvidia/catkin_ws/src/race/msg/pid_input.msg"
+messages_str = "/home/nvidia/catkin_ws/src/race/msg/obj_track.msg;/home/nvidia/catkin_ws/src/race/msg/drive_param.msg;/home/nvidia/catkin_ws/src/race/msg/drive_values.msg;/home/nvidia/catkin_ws/src/race/msg/pid_input.msg"
 services_str = ""
 pkg_name = "race"
 dependencies_str = "std_msgs"

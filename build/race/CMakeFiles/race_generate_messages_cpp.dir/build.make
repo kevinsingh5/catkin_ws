@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
 include race/CMakeFiles/race_generate_messages_cpp.dir/progress.make
 
 race/CMakeFiles/race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include/race/drive_values.h
+race/CMakeFiles/race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include/race/obj_track.h
 race/CMakeFiles/race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include/race/drive_param.h
 race/CMakeFiles/race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include/race/pid_input.h
 
@@ -64,20 +65,27 @@ race/CMakeFiles/race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from race/drive_values.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/nvidia/catkin_ws/src/race/msg/drive_values.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/include/race -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+/home/nvidia/catkin_ws/devel/include/race/obj_track.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/nvidia/catkin_ws/devel/include/race/obj_track.h: /home/nvidia/catkin_ws/src/race/msg/obj_track.msg
+/home/nvidia/catkin_ws/devel/include/race/obj_track.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from race/obj_track.msg"
+	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/nvidia/catkin_ws/src/race/msg/obj_track.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/include/race -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 /home/nvidia/catkin_ws/devel/include/race/drive_param.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/nvidia/catkin_ws/devel/include/race/drive_param.h: /home/nvidia/catkin_ws/src/race/msg/drive_param.msg
 /home/nvidia/catkin_ws/devel/include/race/drive_param.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from race/drive_param.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from race/drive_param.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/nvidia/catkin_ws/src/race/msg/drive_param.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/include/race -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 /home/nvidia/catkin_ws/devel/include/race/pid_input.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/nvidia/catkin_ws/devel/include/race/pid_input.h: /home/nvidia/catkin_ws/src/race/msg/pid_input.msg
 /home/nvidia/catkin_ws/devel/include/race/pid_input.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from race/pid_input.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from race/pid_input.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/nvidia/catkin_ws/src/race/msg/pid_input.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/include/race -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 race_generate_messages_cpp: race/CMakeFiles/race_generate_messages_cpp
 race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include/race/drive_values.h
+race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include/race/obj_track.h
 race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include/race/drive_param.h
 race_generate_messages_cpp: /home/nvidia/catkin_ws/devel/include/race/pid_input.h
 race_generate_messages_cpp: race/CMakeFiles/race_generate_messages_cpp.dir/build.make

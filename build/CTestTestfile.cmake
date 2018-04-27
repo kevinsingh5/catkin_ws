@@ -5,6 +5,6 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
-subdirs(race)
 subdirs(color_tracking)
+subdirs(race)
 subdirs(zed-ros-wrapper)
