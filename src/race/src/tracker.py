@@ -16,7 +16,7 @@ locked = False
 
 startDelay = 120
 searchArea = (100, 100, 200, 200)
-searchArea2 = (200,200)
+#searchArea2 = (200,200)
 # 'BOOSTING', 'MIL', 'KCF', 'TLD', 'MEDIANFLOW', 'GOTURN'
 tracker = cv2.TrackerKCF_create()	
 widthDepthConverter = 1
@@ -55,7 +55,7 @@ def depth_callback(image):
 def processor(input_image, depth_image):
 	global timer
 	global locked
-	global startDelay, searchArea, searchArea2
+	global startDelay, searchArea #searchArea2
 	global tracker
 	global widthDepthConverter
 	ok = False
@@ -106,4 +106,5 @@ if __name__ == '__main__':
 	rospy.init_node('tracker', anonymous=True)
 	rospy.Subscriber("rgb/image_rect_color", Image, image_callback)
 	rospy.Subscriber("depth/depth_registered", Image, depth_callback)
+	locked = False
 	rospy.spin()
