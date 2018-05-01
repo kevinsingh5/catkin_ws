@@ -3,39 +3,57 @@ import rospy
 from race.msg import drive_param
 from race.msg import pid_input
 from race.msg import obj_track
+from race.msg import predict_vals
+ 
 
-from std_msgs.msg import Int32, Float32
-from std_msgs.msg import Bool 
-
-#publishes 'accelerate', 'turn_left' and 'turn_right'
-#subscribes to 'obj_found' and 'obj_position'
+#publishes 'accelerate' and 'turn'
+#subscribes to 'obj_tracking'
 
 vel_input = 15.0
+buff = []
 
-pub = rospy.Publisher('accelerate', Float32, queue_size=10)
-pub2 = rospy.Publisher('turn', Float32, queue_size=10)
+pub = rospy.Publisher('predictions', predict_vals, queue_size=10)
 
 
 def callback(obj_msg):
 	global vel_input
+	global buff
 	angle = 0
 	velocity = 0
 
-	if obj_msg.obj_found:
-		velocity = vel_input
-	else:
-		velocity = -10
+	found = obj_msg.obj_found	# get obj_found BOOL from obj_msg
+	lateral = obj_msg.offset 	# get offset FLOAT32 from obj_msg
+	frontal = obj_msg.dist 		# get dist FLOAT32 from obj_msg
 
-	if obj_msg.offset > 0:		# obj is to the right
-		angle = obj_msg.offset/2
-	elif position <= 0:		# obj is to the left
-		angle = obj_msg.offest/(-2)
+	# buffer list stores last known accurate lateral values 
 
-		# take into account obj_msg.dist to calcualte the velocity
-	
+	if found:
+		if len(buff) > 25:
+			del buff[0]
+		buff.append(lateral)
+		velocity = vel_input * (frontal/10)
+
+	#if lateral == 0:		# object is in center
+	#		angle = 0
+	#	elif lateral > 0:		# object is to the right
+	#		angle = lateral/7
+	#	elif lateral < 0:		# object is to the left
+	#		angle = lateral/(-7)
+		angle = lateral/7
+
+	else: 	# not found
+		if len(buff) > 0:
+			lateral = buff.pop()
+		velocity = vel_input * (frontal/10)
+		
+		angle = lateral/7
+		
 	#msg.angle = angle
-	pub.publish(angle)
-	pub2.publish(velocity)
+	print("Predictor.py says: Velocity= ", velocity, " and angle= ", angle)
+	msg = predict_vals()
+	msg.p_velocity = velocity
+	msg.p_angle = angle
+	pub.publish(msg)
 
 
 if __name__ == '__main__':
@@ -44,3 +62,13 @@ if __name__ == '__main__':
 	#rospy.Subscriber('error', pid_input, control) 	#need error subscription??
 	rospy.Subscriber('obj_tracking', obj_track, callback)	#obj_position (no Vector2)
 	rospy.spin()
+
+# TODO:
+# X if found is False then lateral = 0 doesn't mean center, it means it's lost
+# X if found is True, then lateral = 0 means the object is dead center
+# X based on msg.distance, increase/decrease velocity accordingly
+# X implement a list of last known offset/distance values for when object is lost
+# X when boolean is False, fetch values from memory list to pass on to controllers
+
+# NOTES:
+# fix clock skew: find . -exec touch {} +

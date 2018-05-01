@@ -53,46 +53,62 @@ CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
 # Include the progress variables for this target.
 include race/CMakeFiles/race_generate_messages_py.dir/progress.make
 
+race/CMakeFiles/race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_predict_vals.py
+race/CMakeFiles/race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py
+race/CMakeFiles/race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_detect_values.py
 race/CMakeFiles/race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_values.py
 race/CMakeFiles/race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_obj_track.py
 race/CMakeFiles/race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_param.py
-race/CMakeFiles/race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py
 race/CMakeFiles/race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py
 
 
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_predict_vals.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_predict_vals.py: /home/nvidia/catkin_ws/src/race/msg/predict_vals.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG race/predict_vals"
+	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/nvidia/catkin_ws/src/race/msg/predict_vals.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg
+
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py: /home/nvidia/catkin_ws/src/race/msg/pid_input.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG race/pid_input"
+	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/nvidia/catkin_ws/src/race/msg/pid_input.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg
+
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_detect_values.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_detect_values.py: /home/nvidia/catkin_ws/src/race/msg/detect_values.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG race/detect_values"
+	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/nvidia/catkin_ws/src/race/msg/detect_values.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg
+
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_values.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_values.py: /home/nvidia/catkin_ws/src/race/msg/drive_values.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG race/drive_values"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG race/drive_values"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/nvidia/catkin_ws/src/race/msg/drive_values.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg
 
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_obj_track.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_obj_track.py: /home/nvidia/catkin_ws/src/race/msg/obj_track.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG race/obj_track"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG race/obj_track"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/nvidia/catkin_ws/src/race/msg/obj_track.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg
 
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_param.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_param.py: /home/nvidia/catkin_ws/src/race/msg/drive_param.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG race/drive_param"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python from MSG race/drive_param"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/nvidia/catkin_ws/src/race/msg/drive_param.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg
 
-/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py: /home/nvidia/catkin_ws/src/race/msg/pid_input.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG race/pid_input"
-	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/nvidia/catkin_ws/src/race/msg/pid_input.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg
-
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_predict_vals.py
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py
+/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_detect_values.py
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_values.py
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_obj_track.py
 /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_param.py
-/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python msg __init__.py for race"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python msg __init__.py for race"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg --initpy
 
 race_generate_messages_py: race/CMakeFiles/race_generate_messages_py
+race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_predict_vals.py
+race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py
+race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_detect_values.py
 race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_values.py
 race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_obj_track.py
 race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_param.py
-race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py
 race_generate_messages_py: /home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py
 race_generate_messages_py: race/CMakeFiles/race_generate_messages_py.dir/build.make
 

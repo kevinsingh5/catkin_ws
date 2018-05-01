@@ -27,7 +27,7 @@ def callback(data):
 
 def talker():
 	rospy.init_node('serial_talker', anonymous=True)
-	em_pub.publish(0)
+	em_pub.publish(2)
 	rospy.Subscriber("drive_parameters", drive_param, callback)
 	
 	rospy.spin()

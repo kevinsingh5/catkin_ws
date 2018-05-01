@@ -53,37 +53,51 @@ CMAKE_BINARY_DIR = /home/nvidia/catkin_ws/build
 # Include the progress variables for this target.
 include race/CMakeFiles/race_generate_messages_nodejs.dir/progress.make
 
+race/CMakeFiles/race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/predict_vals.js
+race/CMakeFiles/race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/pid_input.js
+race/CMakeFiles/race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/detect_values.js
 race/CMakeFiles/race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/drive_values.js
 race/CMakeFiles/race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/obj_track.js
 race/CMakeFiles/race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/drive_param.js
-race/CMakeFiles/race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/pid_input.js
 
+
+/home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/predict_vals.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/predict_vals.js: /home/nvidia/catkin_ws/src/race/msg/predict_vals.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from race/predict_vals.msg"
+	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/nvidia/catkin_ws/src/race/msg/predict_vals.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg
+
+/home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/pid_input.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/pid_input.js: /home/nvidia/catkin_ws/src/race/msg/pid_input.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from race/pid_input.msg"
+	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/nvidia/catkin_ws/src/race/msg/pid_input.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg
+
+/home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/detect_values.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/detect_values.js: /home/nvidia/catkin_ws/src/race/msg/detect_values.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from race/detect_values.msg"
+	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/nvidia/catkin_ws/src/race/msg/detect_values.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg
 
 /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/drive_values.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/drive_values.js: /home/nvidia/catkin_ws/src/race/msg/drive_values.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from race/drive_values.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from race/drive_values.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/nvidia/catkin_ws/src/race/msg/drive_values.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg
 
 /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/obj_track.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/obj_track.js: /home/nvidia/catkin_ws/src/race/msg/obj_track.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from race/obj_track.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from race/obj_track.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/nvidia/catkin_ws/src/race/msg/obj_track.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg
 
 /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/drive_param.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/drive_param.js: /home/nvidia/catkin_ws/src/race/msg/drive_param.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from race/drive_param.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from race/drive_param.msg"
 	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/nvidia/catkin_ws/src/race/msg/drive_param.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg
 
-/home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/pid_input.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/pid_input.js: /home/nvidia/catkin_ws/src/race/msg/pid_input.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from race/pid_input.msg"
-	cd /home/nvidia/catkin_ws/build/race && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/nvidia/catkin_ws/src/race/msg/pid_input.msg -Irace:/home/nvidia/catkin_ws/src/race/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p race -o /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg
-
 race_generate_messages_nodejs: race/CMakeFiles/race_generate_messages_nodejs
+race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/predict_vals.js
+race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/pid_input.js
+race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/detect_values.js
 race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/drive_values.js
 race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/obj_track.js
 race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/drive_param.js
-race_generate_messages_nodejs: /home/nvidia/catkin_ws/devel/share/gennodejs/ros/race/msg/pid_input.js
 race_generate_messages_nodejs: race/CMakeFiles/race_generate_messages_nodejs.dir/build.make
 
 .PHONY : race_generate_messages_nodejs

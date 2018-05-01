@@ -1,9 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/race_generate_messages_py"
+  "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_predict_vals.py"
+  "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py"
+  "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_detect_values.py"
   "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_values.py"
   "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_obj_track.py"
   "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_drive_param.py"
-  "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/_pid_input.py"
   "/home/nvidia/catkin_ws/devel/lib/python2.7/dist-packages/race/msg/__init__.py"
 )
 

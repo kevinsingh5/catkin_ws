@@ -14,11 +14,11 @@ pub = rospy.Publisher("obj_tracking", obj_track, queue_size=10)
 timer = 0
 locked = False
 
-startDelay = 120
-searchArea = (100, 100, 200, 200)
+startDelay = 5000000
+searchArea = (200, 200, 200, 200)
 #searchArea2 = (200,200)
 # 'BOOSTING', 'MIL', 'KCF', 'TLD', 'MEDIANFLOW', 'GOTURN'
-tracker = cv2.TrackerKCF_create()	
+tracker = cv2.TrackerMIL_create()
 widthDepthConverter = 1
 
 input_image = None
@@ -34,9 +34,6 @@ def image_callback(image):
 		print(e)
 
 	input_image = cv_image
-	cv2.imshow("Image Test", input_image)
-	cv2.waitKey(1)
-
 
 def depth_callback(image):
 	global depth_image
@@ -49,15 +46,17 @@ def depth_callback(image):
 		print(e)
 
 	depth_image = cv_image2
-	processor(input_image, depth_image)
+	processor()
 
 
-def processor(input_image, depth_image):
+def processor():
 	global timer
 	global locked
 	global startDelay, searchArea #searchArea2
 	global tracker
 	global widthDepthConverter
+	global input_image
+	global depth_image
 	ok = False
 	dist = 0
 	offset = 0
@@ -68,37 +67,50 @@ def processor(input_image, depth_image):
 	if(timer == 0):
 		timer = cv2.getTickCount()
 
-
+	c = cv2.waitKey(1)
 	if(not locked):    #at start, put bounding box in predefind location
-		if(cv2.getTickCount() - timer <= startDelay):
-		    cv2.rectangle(input_image, (100, 100), (200, 200), (255,0,0), 3, 8)
+		print("Tracker.py says: NOT LOCKED")
+		cv2.imshow("Tracking_img",input_image)
+		if('q' != chr(c & 255)):
+		    cv2.rectangle(input_image, (200, 200), (400, 400), (255,0,0), 3, 8)
 		else:
 			#when enough time has passed, lock the tracker onto whatever is in the square
 		    tracker.init(input_image, searchArea)  
-		    cv2.rectangle(input_image, (100, 100), (200, 200), (0,255,0), 3, 8)
+		    cv2.rectangle(input_image, (200, 200), (400, 400), (0,255,0), 3, 8)
 		    locked = True
 	else:
+		print("Tracker.py says: LOCKED ON")
 		ok, box = tracker.update(input_image)	#attempt to track locked object
-		if ok:                                
-		    cv2.rectangle(input_image, (int(box[0]), int(box[1])), (int(box[2]), int(box[3])), (0,255,0), 3, 8)                                    
-		    center = ( ((int(box[0]) + int(box[2])/2), (int(box[1]) + int(box[3])/2)) )
+		if ok:
+		    p1 = (int(box[0]), int(box[1]))
+		    p2 = (int(box[0] + box[2]), int(box[1] + box[3]))                                
+		    cv2.rectangle(input_image, p1, p2, (0,255,0), 3, 8)                                    
+		    center =  ((int(box[0]) + int(box[2])/2), (int(box[1]) + int(box[3])/2)) 
 		    		    	#dist measured in units according to zed camera's output. 32f iirc. From center of tracked object
-		    dist = depth_image[center[0], center[1]]                          
-		    #offset of object center from center of image in pixels  
-		    offset = center[0] - input_image.shape[1]/2                            
-		    #convert offset to depth units, same as dist's
-		    offset *= widthDepthConverter                                        
+		    print("Trakcer box: ", box)
+		    print("Center: ", center)
+		    h1, w1, ch1 = input_image.shape
+		    h2, w2 = depth_image.shape
+		    offset = center[0] - w1/2
+		    print("Tracker says w1= ", w1, "center[0]= ", center[0])
+		    center = (center[0] * w2 / w1, center[1] * h2 / h1)		    
+		    #dist = depth_image[center[0], center[1]]
+		    dist = 10                                              
 		else:
 		    dist = 0
 		    offset = 0
 
 	#Note to predictor, if ok/"Object_Found" = false then dist and offset cannot be trusted!
+	print("Tracker.py says: dist= ", dist, " and offset= ", offset)
 	msg = obj_track()
 	msg.obj_found = ok
 	msg.dist = dist
 	msg.offset = offset
 
 	pub.publish(msg)
+
+	#cv2.imshow("Tracking Image", input_image)
+	c = cv2.waitKey(1)
 
 
 if __name__ == '__main__':

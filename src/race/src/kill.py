@@ -17,8 +17,8 @@ running = -1 # -1 init , 0 stop, 1 engine brake, 2 normal
 while key != ord('q'):
 	key = stdscr.getch()
 	stdscr.refresh()
-	if key == 8:#curses.KEY_BACKSPACE:
-	#if key == curses.KEY_BACKSPACE:
+	#if key == 8:#curses.KEY_BACKSPACE:
+	if key == curses.KEY_BACKSPACE:
 		if running == 0:
 			em_pub.publish(2)
 			stdscr.addstr(5, 20, "Normal Operation :)")
