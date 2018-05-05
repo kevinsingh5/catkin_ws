@@ -9,20 +9,20 @@ from cv_bridge import CvBridge, CvBridgeError
 from race.msg import obj_track
 
 pub = rospy.Publisher("obj_tracking", obj_track, queue_size=10)
-
+em_pub = rospy.Publisher("eStop", Int32, queue_size=10)
 #PARAMS -- SET MAIN
 timer = 0
 locked = False
+stopped = True
 
 startDelay = 5000000
 searchArea = (200, 200, 200, 200)
 #searchArea2 = (200,200)
 # 'BOOSTING', 'MIL', 'KCF', 'TLD', 'MEDIANFLOW', 'GOTURN'
-tracker = cv2.TrackerMIL_create()
+tracker = cv2.TrackerBoosting_create()
 widthDepthConverter = 1
 
 input_image = None
-depth_image = None
 
 def image_callback(image):
 	global input_image
@@ -34,18 +34,6 @@ def image_callback(image):
 		print(e)
 
 	input_image = cv_image
-
-def depth_callback(image):
-	global depth_image
-	global input_image
-
-	bridge2 = CvBridge()
-	try:
-		cv_image2 = bridge2.imgmsg_to_cv2(image, desired_encoding="passthrough")
-	except CvBridgeError as e:
-		print(e)
-
-	depth_image = cv_image2
 	processor()
 
 
@@ -56,7 +44,8 @@ def processor():
 	global tracker
 	global widthDepthConverter
 	global input_image
-	global depth_image
+	global stopped
+
 	ok = False
 	dist = 0
 	offset = 0
@@ -66,11 +55,9 @@ def processor():
 
 	if(timer == 0):
 		timer = cv2.getTickCount()
-
 	c = cv2.waitKey(1)
 	if(not locked):    #at start, put bounding box in predefind location
 		print("Tracker.py says: NOT LOCKED")
-		cv2.imshow("Tracking_img",input_image)
 		if('q' != chr(c & 255)):
 		    cv2.rectangle(input_image, (200, 200), (400, 400), (255,0,0), 3, 8)
 		else:
@@ -78,8 +65,13 @@ def processor():
 		    tracker.init(input_image, searchArea)  
 		    cv2.rectangle(input_image, (200, 200), (400, 400), (0,255,0), 3, 8)
 		    locked = True
+		cv2.imshow("tracking_img", input_image)
+		c = cv2.waitKey(1)
 	else:
 		print("Tracker.py says: LOCKED ON")
+		if stopped:
+			em_pub.publish(2)
+			stopped = False
 		ok, box = tracker.update(input_image)	#attempt to track locked object
 		if ok:
 		    p1 = (int(box[0]), int(box[1]))
@@ -90,11 +82,8 @@ def processor():
 		    print("Trakcer box: ", box)
 		    print("Center: ", center)
 		    h1, w1, ch1 = input_image.shape
-		    h2, w2 = depth_image.shape
 		    offset = center[0] - w1/2
 		    print("Tracker says w1= ", w1, "center[0]= ", center[0])
-		    center = (center[0] * w2 / w1, center[1] * h2 / h1)		    
-		    #dist = depth_image[center[0], center[1]]
 		    dist = 10                                              
 		else:
 		    dist = 0
@@ -110,13 +99,11 @@ def processor():
 	pub.publish(msg)
 
 	#cv2.imshow("Tracking Image", input_image)
-	c = cv2.waitKey(1)
 
 
 if __name__ == '__main__':
 	print("Tracker node started")
 	rospy.init_node('tracker', anonymous=True)
 	rospy.Subscriber("rgb/image_rect_color", Image, image_callback)
-	rospy.Subscriber("depth/depth_registered", Image, depth_callback)
 	locked = False
 	rospy.spin()

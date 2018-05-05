@@ -32,12 +32,11 @@ test:
 	rosrun race predictor.py &
 	rosrun race motor.py &
 
-litesting:
+front:
 	roscore &
 	rosrun rosserial_python serial_node.py /dev/ttyACM0 &
 	rosrun urg_node urg_node _ip_address:=192.168.0.10 &
 	rosrun race talker.py &
-	rosrun race side_dist_finder.py &
 
 clean:
 	killall -9 python
